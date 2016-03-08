@@ -1,0 +1,76 @@
+<!-- "Join Team" (Post) Form -->
+<div class="col-md-5">
+
+    <!-- Creates Main Panel -->
+    <div class="panel panel-default">
+
+        <!-- Panel Body -->
+        <div class="panel-body">
+
+            <!-- Creates Form (novalidate disables HTML validation, Angular will control) -->
+            <form name ="addForm" novalidate>
+
+                <!-- Text Boxes and Other User Inputs. Note ng-model binds the values to Angular $scope -->
+                <div class="form-group">
+                    <label for="name">Name  <span class="badge">All fields required</span></label>
+                    <input type="text" class="form-control" id="name" placeholder="Name" ng-model="formData.username" required>
+                </div>
+                <div class="form-group">
+                    <label for="route">Route  <span class="badge">All fields required</span></label>
+                    <input type="text" class="form-control" id="route" placeholder="Route" ng-model="formData.route" required>
+                </div>
+            
+                <label class="radio control-label">Location Type</label>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="radiofood/water" value="Food/Water" ng-model="formData.location_type">
+                        Food/Water
+                    </label>
+                </div>
+                <div class="radio" required>
+                    <label>
+                        <input type="radio" name="optionsRadios" id="radioshelter" value="Shelter" ng-model="formData.location_type">
+                        Shelter
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="radioattraction" value="Attraction" ng-model="formData.location_type">
+                        Attraction
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="radiohazard" value="Hazard" ng-model="formData.location_type">
+                        Hazard
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="radioother" value="Other" ng-model="formData.location_type">
+                        Other
+                    </label>
+                </div>
+
+               <div class="form-group">
+                    <label for="description">Description  <span class="badge">All fields required</span></label>
+                    <input type="text" class="form-control" id="description" placeholder="Description Here" ng-model="formData.description" required>
+                </div>
+                <div class="form-group">
+                    <label for="latitude">Latitude</label>
+                    <input type="text" class="form-control" id="latitude" value="39.500" ng-model="formData.latitude" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="longitude">Longitude</label>
+                    <input type="text" class="form-control" id="longitude" value="-98.350" ng-model="formData.longitude" readonly>
+                </div>
+                <div class="form-group">
+                    <button ng-click="refreshLoc()" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-refresh"></span></button></span>
+                </div>
+
+                <!-- Submit button. Note that its tied to createUser() function from addCtrl. Also note ng-disabled logic which prevents early submits.  -->
+                <button type="submit" class="btn btn-danger btn-block" ng-click="createUser()" >Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
